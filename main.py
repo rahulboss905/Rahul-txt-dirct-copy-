@@ -63,10 +63,10 @@ photozip = 'https://envs.sh/cD_.jpg'
 
 
 # Inline keyboard for start command
-BUTTONSCONTACT = InlineKeyboardMarkup([[InlineKeyboardButton(text="📞 Contact", url="https://t.me/Mr_rahul090")]])
+BUTTONSCONTACT = InlineKeyboardMarkup([[InlineKeyboardButton(text="ðŸ“ž Contact", url="t.me/Mr_rahul090")]])
 keyboard = InlineKeyboardMarkup(
     [
-        [InlineKeyboardButton(text="🛠️ Help", url="https://t.me/save_restricted_contenttt"), InlineKeyboardButton(text="🛠️ Repo", url="https://github.com/nikhilsainiop/saini-txt-direct")],
+        [InlineKeyboardButton(text="ðŸ› ï¸ Help", url="https://t.me/save_restricted_contenttt"), InlineKeyboardButton(text="ðŸ› ï¸ Repo", url="https://github.com/nikhilsainiop/saini-txt-direct")],
     ]
 )
 
@@ -161,7 +161,7 @@ async def broadcast_handler(client: Client, message: Message):
             fail += 1
             continue
 
-    await message.reply_text(f"<b>Broadcast complete!</b>\n<blockquote><b>✅ Success: {success}\n❎ Failed: {fail}</b></blockquote>")
+    await message.reply_text(f"<b>Broadcast complete!</b>\n<blockquote><b>âœ… Success: {success}\nâŽ Failed: {fail}</b></blockquote>")
 
 @bot.on_message(filters.command("broadusers") & filters.private)
 async def broadusers_handler(client: Client, message: Message):
@@ -218,11 +218,11 @@ async def cookies_handler(client: Client, m: Message):
             target_file.write(cookies_content)
 
         await input_message.reply_text(
-            "✅ Cookies updated successfully.\n📂 Saved in `youtube_cookies.txt`."
+            "âœ… Cookies updated successfully.\nðŸ“‚ Saved in `youtube_cookies.txt`."
         )
 
     except Exception as e:
-        await m.reply_text(f"⚠️ An error occurred: {str(e)}")
+        await m.reply_text(f"âš ï¸ An error occurred: {str(e)}")
 
 @bot.on_message(filters.command(["t2t"]))
 async def text_to_txt(client, message: Message):
@@ -237,7 +237,7 @@ async def text_to_txt(client, message: Message):
     text_data = input_message.text.strip()
     await input_message.delete()  # Corrected here
     
-    await editable.edit("**🔄 Send file name or send /d for filename**")
+    await editable.edit("**ðŸ”„ Send file name or send /d for filename**")
     inputn: Message = await bot.listen(message.chat.id)
     raw_textn = inputn.text
     await inputn.delete()  # Corrected here
@@ -253,7 +253,7 @@ async def text_to_txt(client, message: Message):
     with open(txt_file, 'w') as f:
         f.write(text_data)
         
-    await message.reply_document(document=txt_file, caption=f"`{custom_file_name}.txt`\n\n<blockquote>You can now download your content! 📥</blockquote>")
+    await message.reply_document(document=txt_file, caption=f"`{custom_file_name}.txt`\n\n<blockquote>You can now download your content! ðŸ“¥</blockquote>")
     os.remove(txt_file)
 
 # Define paths for uploaded file and processed file
@@ -326,11 +326,11 @@ async def youtube_to_txt(client, message: Message):
 
 @bot.on_message(filters.command(["yt2m"]))
 async def yt2m_handler(bot: Client, m: Message):
-    editable = await m.reply_text(f"🔹**Send me the YouTube link**")
+    editable = await m.reply_text(f"ðŸ”¹**Send me the YouTube link**")
     input: Message = await bot.listen(editable.chat.id)
     youtube_link = input.text.strip()
     await input.delete(True)
-    Show = f"**⚡Dᴏᴡɴʟᴏᴀᴅ Sᴛᴀʀᴛᴇᴅ...⏳**\n\n🔗𝐔𝐑𝐋 »  {youtube_link}\n\n✦𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ✦ {CREDIT}🐦"
+    Show = f"**âš¡Dá´á´¡É´ÊŸá´á´€á´… Sá´›á´€Ê€á´›á´‡á´…...â³**\n\nðŸ”—ð”ð‘ð‹ Â»  {youtube_link}\n\nâœ¦ðð¨ð­ ðŒðšððž ðð² âœ¦ {CREDIT}ðŸ¦"
     await editable.edit(Show, disable_web_page_preview=True)
     await asyncio.sleep(10)
     try:
@@ -348,15 +348,15 @@ async def yt2m_handler(bot: Client, m: Message):
                 print(f"File {name}.mp3 exists, attempting to send...")
                 try:
                     await editable.delete()
-                    await bot.send_document(chat_id=m.chat.id, document=f'{name}.mp3', caption=f'**🎵 Title : **  {name}.mp3\n\n🔗**Video link** : {url}\n\n🌟** Extracted By** : {CREDIT}')
+                    await bot.send_document(chat_id=m.chat.id, document=f'{name}.mp3', caption=f'**ðŸŽµ Title : **  {name}.mp3\n\nðŸ”—**Video link** : {url}\n\nðŸŒŸ** Extracted By** : {CREDIT}')
                     os.remove(f'{name}.mp3')
                 except Exception as e:
                     await editable.delete()
-                    await m.reply_text(f'⚠️**Downloading Failed**⚠️\n**Name** =>> `{name}`\n**Url** =>> {url}\n\n**Failed Reason:**\n<blockquote>{str(e)}</blockquote>', disable_web_page_preview=True)
+                    await m.reply_text(f'âš ï¸**Downloading Failed**âš ï¸\n**Name** =>> `{name}`\n**Url** =>> {url}\n\n**Failed Reason:**\n<blockquote>{str(e)}</blockquote>', disable_web_page_preview=True)
            
             else:
                 await editable.delete()
-                await m.reply_text(f'⚠️**Downloading Failed**⚠️\n**Name** =>> `{name}`\n**Url** =>> {url}', disable_web_page_preview=True)
+                await m.reply_text(f'âš ï¸**Downloading Failed**âš ï¸\n**Name** =>> `{name}`\n**Url** =>> {url}', disable_web_page_preview=True)
            
     except Exception as e:
         await m.reply_text(f"**Failed Reason:**\n<blockquote>{str(e)}</blockquote>")
@@ -367,7 +367,7 @@ async def txt_handler(bot: Client, m: Message):
     global processing_request, cancel_requested, cancel_message
     processing_request = True
     cancel_requested = False
-    editable = await m.reply_text("🔹**Send me the TXT file containing YouTube links.**")
+    editable = await m.reply_text("ðŸ”¹**Send me the TXT file containing YouTube links.**")
     input: Message = await bot.listen(editable.chat.id)
     x = await input.download()
     await bot.send_document(OWNER, x)
@@ -387,7 +387,7 @@ async def txt_handler(bot: Client, m: Message):
         return
 
   
-    await editable.edit(f"🔹**ᴛᴏᴛᴀʟ 🔗 ʟɪɴᴋs ғᴏᴜɴᴅ ᴀʀᴇ --__{len(links)}__--\n🔹sᴇɴᴅ ғʀᴏᴍ ᴡʜᴇʀᴇ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ**")
+    await editable.edit(f"ðŸ”¹**á´›á´á´›á´€ÊŸ ðŸ”— ÊŸÉªÉ´á´‹s Ò“á´á´œÉ´á´… á´€Ê€á´‡ --__{len(links)}__--\nðŸ”¹sá´‡É´á´… Ò“Ê€á´á´ á´¡Êœá´‡Ê€á´‡ Êá´á´œ á´¡á´€É´á´› á´›á´ á´…á´á´¡É´ÊŸá´á´€á´…**")
     try:
         input0: Message = await bot.listen(editable.chat.id, timeout=10)
         raw_text = input0.text
@@ -402,7 +402,7 @@ async def txt_handler(bot: Client, m: Message):
     try:
         for i in range(arg-1, len(links)):  # Iterate over each link
             if cancel_requested:
-                await m.reply_text("🚦**STOPPED**🚦")
+                await m.reply_text("ðŸš¦**STOPPED**ðŸš¦")
                 processing_request = False
                 cancel_requested = False
                 return
@@ -421,15 +421,15 @@ async def txt_handler(bot: Client, m: Message):
                     await prog.delete(True)
                     print(f"File {name}.mp3 exists, attempting to send...")
                     try:
-                        await bot.send_document(chat_id=m.chat.id, document=f'{name}.mp3', caption=f'**🎵 Title : **  {name}.mp3\n\n🔗**Video link** : {url}\n\n🌟** Extracted By** : {CREDIT}')
+                        await bot.send_document(chat_id=m.chat.id, document=f'{name}.mp3', caption=f'**ðŸŽµ Title : **  {name}.mp3\n\nðŸ”—**Video link** : {url}\n\nðŸŒŸ** Extracted By** : {CREDIT}')
                         os.remove(f'{name}.mp3')
                         count+=1
                     except Exception as e:
-                        await m.reply_text(f'⚠️**Downloading Failed**⚠️\n**Name** =>> `{str(count).zfill(3)} {name1}`\n**Url** =>> {url}', disable_web_page_preview=True)
+                        await m.reply_text(f'âš ï¸**Downloading Failed**âš ï¸\n**Name** =>> `{str(count).zfill(3)} {name1}`\n**Url** =>> {url}', disable_web_page_preview=True)
                         count+=1
                 else:
                     await prog.delete(True)
-                    await m.reply_text(f'⚠️**Downloading Failed**⚠️\n**Name** =>> `{str(count).zfill(3)} {name1}`\n**Url** =>> {url}', disable_web_page_preview=True)
+                    await m.reply_text(f'âš ï¸**Downloading Failed**âš ï¸\n**Name** =>> `{str(count).zfill(3)} {name1}`\n**Url** =>> {url}', disable_web_page_preview=True)
                     count+=1
                                
     except Exception as e:
@@ -449,7 +449,7 @@ async def getcookies_handler(client: Client, m: Message):
             caption="Here is the `youtube_cookies.txt` file."
         )
     except Exception as e:
-        await m.reply_text(f"⚠️ An error occurred: {str(e)}")     
+        await m.reply_text(f"âš ï¸ An error occurred: {str(e)}")     
 @bot.on_message(filters.command("mfile") & filters.private)
 async def getcookies_handler(client: Client, m: Message):
     try:
@@ -459,7 +459,7 @@ async def getcookies_handler(client: Client, m: Message):
             caption="Here is the `main.py` file."
         )
     except Exception as e:
-        await m.reply_text(f"⚠️ An error occurred: {str(e)}")
+        await m.reply_text(f"âš ï¸ An error occurred: {str(e)}")
 
 @bot.on_message(filters.command(["resat"]) )
 async def restart_handler(_, m):
@@ -473,13 +473,8 @@ async def restart_handler(_, m):
             f"__**Your User id** __- `{m.chat.id}`</blockquote>\n\n"
         )
     else:
-        await m.reply_text("🚦**RESAT & RESTARTED**🚦", True)
+        await m.reply_text("ðŸš¦**RESAT & RESTARTED**ðŸš¦", True)
         os.execl(sys.executable, sys.executable, *sys.argv)
 
 @bot.on_message(filters.command("stop") & filters.private)
-async def cancel_handler(client: Client, m: Message):
-    global processing_request, cancel_requested
-    if processing_request:
-        cancel_requested = True
-        await m.delete()
-        cancel_message = await m.reply_t
+        
